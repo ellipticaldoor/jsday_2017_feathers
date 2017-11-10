@@ -11,3 +11,9 @@ process.on('unhandledRejection', (reason, p) =>
 server.on('listening', () =>
   logger.info('Feathers application started on http://%s:%d', app.get('host'), port)
 );
+
+
+const demo = app.service('demo');
+
+// Listen to a normal service event
+demo.on('created', message => console.log('message created', message));
